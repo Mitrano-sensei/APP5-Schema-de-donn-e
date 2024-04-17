@@ -7,10 +7,10 @@ interface FormPart {
 }
 
 interface Props {
-    options: string[];
+    formOptions: string[];
 }
 
-const FormBox = ({options} : Props) => {
+const FormBox = ({formOptions} : Props) => {
 
     function createForm(formParts: FormPart[]) {
         return formParts.map(formPart => {
@@ -58,7 +58,7 @@ const FormBox = ({options} : Props) => {
             <div className='flex'>
                 <h1 className='pl-1 pr-3 font-bold'>Formulaire : </h1>
                 <select className='pl-2 pr-2 text-black'>
-                    {options.map((option, index) => (
+                    {formOptions.map((option, index) => (
                         <option key={index} value={option} className='text-black'>{option}</option>
                     ))}
                 </select>

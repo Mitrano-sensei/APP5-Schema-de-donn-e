@@ -11,7 +11,7 @@ export default function Home() {
           <div className='border-t border-gray-500'></div>
           <TextChat />
           <div className='border-t border-gray-500'></div>
-          <FormBox options={['1', '2']} />
+          <FormBox formOptions={['1', '2']} />
 
         </div>
       </main>
