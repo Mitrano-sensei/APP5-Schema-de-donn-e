@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 
 interface FormPart {
@@ -8,9 +10,10 @@ interface FormPart {
 
 interface Props {
     formOptions: string[];
+    forms: FormPart[][];
 }
 
-const FormBox = ({formOptions} : Props) => {
+const FormBox = ({formOptions, forms} : Props) => {
 
     function createForm(formParts: FormPart[]) {
         return formParts.map(formPart => {
@@ -47,17 +50,17 @@ const FormBox = ({formOptions} : Props) => {
             }
         });
     }
-    
-    const exampleFormParts: FormPart[] = [
-        {title: 'Décrit ton plat préféré', type: 'text', options: []},
-        {title: 'Choisis ta couleur préférée', type: 'select', options: ['Rouge', 'Bleu', 'Vert']},
-    ]; // TODO : Devrait être remplacé par un formProvider qui lirait le XML correspondant à l'option sélectionnée
+
+    const [selectedForm, setSelectedForm] = React.useState(0);
 
     return (
         <div className='flex-col w-full'>
             <div className='flex'>
                 <h1 className='pl-1 pr-3 font-bold'>Formulaire : </h1>
-                <select className='pl-2 pr-2 text-black'>
+                <select 
+                    className='pl-2 pr-2 text-black' 
+                    onChange={(e) => setSelectedForm(e.target.selectedIndex)}
+                >
                     {formOptions.map((option, index) => (
                         <option key={index} value={option} className='text-black'>{option}</option>
                     ))}
@@ -65,7 +68,7 @@ const FormBox = ({formOptions} : Props) => {
             </div>
 
             <form action="">
-                {createForm(exampleFormParts)}
+                {createForm(forms[selectedForm])}
 
                 <div className='flex justify-center'>
                     <button className='bg-blue-900 text-white p-2 rounded-lg mt-2'>Submit</button>
