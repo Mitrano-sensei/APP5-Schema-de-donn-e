@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="forms.xsd">
+    <question>
+        Quelle est votre couleur préférée ?
+    </question>
+    <select>
+        <question>Quel est votre animal préféré ?</question>
+        <option>Chien</option>
+        <option>Chat</option>
+        <option>Oiseau</option>
+    </select>
+    <question>
+        Quel est votre plat préféré ?
+    </question>
+</form>
