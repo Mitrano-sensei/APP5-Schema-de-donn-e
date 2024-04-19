@@ -1,4 +1,4 @@
-export interface IXMLProvider {
+export interface IFormProvider {
     getForms(): FormPart[][];
     getFormNames(): string[];
 }

@@ -1,6 +1,6 @@
-import { FormPart, IXMLProvider } from "./IXMLProvider";
+import { FormPart, IFormProvider } from "./IFormProvider";
 
-export class SampleProvider implements IXMLProvider {
+export class SampleProvider implements IFormProvider {
     constructor(){}
 
     getFormNames(): string[] {

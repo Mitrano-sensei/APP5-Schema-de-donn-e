@@ -2,9 +2,10 @@ import TextChat from "@/components/TextChat";
 import Userbar from "../components/Userbar";
 import FormBox from "@/components/FormBox";
 import { SampleProvider } from "@/providers/SampleProvider";
+import { XMLFormProvider } from "@/providers/XMLFormProvider";
 
 export default function Home() {
-  const formProvider = new SampleProvider();
+  const formProvider = new XMLFormProvider();
 
   return (
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
