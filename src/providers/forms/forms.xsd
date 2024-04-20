@@ -3,6 +3,7 @@
     <xs:element name="form">
         <xs:complexType>
             <xs:choice maxOccurs="unbounded">
+                <!-- Question simple -->
                 <xs:element name="question">
                     <xs:complexType>
                         <xs:simpleContent>
@@ -10,6 +11,8 @@
                         </xs:simpleContent>
                     </xs:complexType>
                 </xs:element>
+
+                <!-- Question à choix -->
                 <xs:element name="select">
                     <xs:complexType>
                         <xs:sequence>
@@ -24,6 +27,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+                
             </xs:choice>
         </xs:complexType>
     </xs:element>

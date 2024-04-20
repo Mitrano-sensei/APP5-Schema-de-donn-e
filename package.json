@@ -10,10 +10,15 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
+    "fast-xml-parser": "^4.3.6",
+    "libxmljs": "^1.0.10",
     "next": "14.2.1",
     "react": "^18",
+    "react-dev-utils": "^10.0.0",
     "react-dom": "^18",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "5.0.1",
+    "xml-js": "^1.6.11",
+    "xmljs": "^0.3.2"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -23,6 +28,6 @@
     "eslint-config-next": "14.2.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^4"
+    "typescript": "^5"
   }
 }

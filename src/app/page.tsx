@@ -1,8 +1,8 @@
 import TextChat from "@/components/TextChat";
 import Userbar from "../components/Userbar";
 import FormBox from "@/components/FormBox";
-import { SampleProvider } from "@/providers/SampleProvider";
 import { XMLFormProvider } from "@/providers/XMLFormProvider";
+import { SampleProvider } from "@/providers/SampleProvider";
 
 export default function Home() {
   const formProvider = new XMLFormProvider();

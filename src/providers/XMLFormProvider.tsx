@@ -1,8 +1,10 @@
-import { FormPart, IFormProvider } from "./IFormProvider";
+import { FormPart } from "./IFormProvider";
 import {promises as fsPromises} from 'fs';
 import { SampleProvider } from "./SampleProvider";
+import {XMLParser, XMLValidator} from 'fast-xml-parser';
 
-export class XMLFormProvider implements IFormProvider {
+
+export class XMLFormProvider {
     constructor(){}
 
     getFormNames(): string[] {
@@ -14,10 +16,15 @@ export class XMLFormProvider implements IFormProvider {
         // const xsdFile = fs.readFileSync('./forms/forms.xsd', 'utf8');
         fsPromises.readFile('./src/providers/forms/forms.xsd', 'utf8').then((xsd) => {
             fsPromises.readFile('./src/providers/forms/form1.xml', 'utf8').then((xml) => {
+                const parser = new XMLParser();        
+
                 if (!this.validateFile(xsd, xml)){
                     console.log('Invalid file');
                     return;
                 }
+
+                const xsdObj = parser.parse(xsd);
+                const xmlObj = parser.parse(xml);
 
                 console.log('Valid file');
             });
@@ -31,20 +38,16 @@ export class XMLFormProvider implements IFormProvider {
     }
 
     validateFile(xsd: string, xml: string) : boolean {
-
-        // const validator = require('xsd-schema-validator');
         let valid = false;
-
-        // console.log(xml)
-
-        // validator.validateXML(xml, xsd, function(err: any, result: any) {
-        //     if (err) {
-        //         console.log(err);
-        //         return;
-        //     }
-
-        //     valid = result.valid;
+        valid = XMLValidator.validate(xsd) === true;
+        valid = valid && XMLValidator.validate(xml) === true;
+        
+        // const res = xmllint.validateXml({
+        //     xml: xml,
+        //     schema: xsd
         // });
+        // console.log(res);
+
         return valid;
     }
 }

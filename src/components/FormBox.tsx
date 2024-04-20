@@ -15,7 +15,7 @@ interface Props {
 
 const FormBox = ({formOptions, forms} : Props) => {
 
-    function createForm(formParts: FormPart[]) {
+    function createForm(formParts: FormPart[], formNumber: number = 0) {
         return formParts.map(formPart => {
             switch (formPart.type) {
                 case 'text':
@@ -33,7 +33,7 @@ const FormBox = ({formOptions, forms} : Props) => {
                             <h1 className='pl-1 pr-3 font-bold'>{formPart.title} : </h1>
                             <select className='pl-2 pr-2 text-black'>
                                 {formPart.options.map((option, index) => (
-                                    <option key={index} value={option} className='text-black'>{option}</option>
+                                    <option key={index + 100*formNumber} value={option} className='text-black'>{option}</option>
                                 ))}
                             </select>
                         </div>
